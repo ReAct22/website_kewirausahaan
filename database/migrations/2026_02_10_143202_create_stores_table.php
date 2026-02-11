@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->unique()->constrained('users')->onDelete('cascade');
+            $table->string('nama_toko', 100);
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }
